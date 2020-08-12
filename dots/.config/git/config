@@ -1,7 +1,5 @@
 [user]
-	name = Angelo Gazzola
-	email = angelo@nglgzz.com
-	signingkey = 8214022A58C37D01
+	
 [alias]
 	ls = log --pretty=format:\"[%h]%d%Cblue%an%Creset:~$ %s %C(bold green)(%ar)%Creset\" --graph
 	sign-all = rebase --exec 'git commit --amend --no-edit -n -S' -i --root

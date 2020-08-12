@@ -4,7 +4,7 @@
     alternate-normal-foreground: @foreground;
     selected-normal-foreground:  @background;
 
-    background:                  rgba ( 0, 0, 0, 100 % );
+    background:                  rgba ( 63, 63, 63, 90 % );
     normal-background:           @background;
     alternate-normal-background: @background;
     background-color:            @background;

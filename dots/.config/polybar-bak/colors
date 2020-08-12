@@ -1,0 +1,4 @@
+black =  ${xrdb:background:#000}
+gray = ${xrdb:color0:#3f3f3f}
+accent = ${xrdb:foreground:#4ef4ca}
+alert = ${xrdb:color9:#a54242}

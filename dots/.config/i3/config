@@ -22,8 +22,9 @@ set_from_resource $urgent    color9     #DF6418
 
 # Layout
 set $border_width 0
-gaps inner 20
+gaps inner 10
 gaps outer 20
+gaps bottom 10
 # Only enable gaps on a workspace when there is at least one container. Looks
 # nice but need to find a way to show polybar when there's only one window
 # inside a container.
@@ -53,7 +54,7 @@ workspace $ws6 output $screen1
 bindsym $mod+Ctrl+r restart
 
 # Lock screen
-bindsym $mod+Ctrl+x exec i3lock --color '000000'
+bindsym $mod+Ctrl+i exec i3lock --color '000000'
 
 # Exit (logs out of your X session)
 bindsym $mod+Ctrl+q exec i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'
@@ -101,20 +102,20 @@ bindsym XF86HomePage move workspace to output left
 
 # Workspace
 # Go to workspace
-bindsym $mod+q workspace $ws1
-bindsym $mod+w workspace $ws2
-bindsym $mod+e workspace $ws3
-bindsym $mod+i workspace $ws4
-bindsym $mod+o workspace $ws5
-bindsym $mod+p workspace $ws6
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
 
 # Move focused container to workspace
-bindsym $mod+Shift+q move container to workspace $ws1
-bindsym $mod+Shift+w move container to workspace $ws2
-bindsym $mod+Shift+e move container to workspace $ws3
-bindsym $mod+Shift+i move container to workspace $ws4
-bindsym $mod+Shift+o move container to workspace $ws5
-bindsym $mod+Shift+p move container to workspace $ws6
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
 
 # Back and forth between last two workspaces
 bindsym $mod+Tab workspace back_and_forth
@@ -141,7 +142,7 @@ bindsym $mod+Shift+k move down
 bindsym $mod+Shift+j move left
 
 # Kill focused window
-bindsym $mod+Ctrl+f kill
+bindsym $mod+q kill
 
 # System font
 font pango:fira 8
@@ -177,9 +178,6 @@ bindsym XF86MonBrightnessDown exec light -U 10
 # Random
 bindsym $mod+a exec feh $config_dir/i3/42.png
 bindsym $mod+z exec feh $config_dir/i3/i3.png
-
-assign [class="Code"] $ws2
-assign [class="Termite"] $ws3
 
 # Prepare background and start default programs
 exec_always feh --bg-scale $config_dir/i3/bg.jpg
