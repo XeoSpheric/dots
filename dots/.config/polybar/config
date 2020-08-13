@@ -10,9 +10,11 @@
 ;; Adapted by Calvin Smoot
 ;;
 ;; Table of Contents 
-;;  1. Colors
-;;  2. Bar Defaults
-;;  3. Modules
+;;  1. Settings
+;;  2. Golbal WM Settings
+;;  3. Colors
+;;  4. Bar Defaults
+;;  5. Modules
 ;;   a. i3
 ;;   b. network
 ;;   c. date
@@ -25,14 +27,21 @@
 ;;  Arch Linux running i3 on an HP Envy x360.
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+[settings]
+screenchange-reload = true
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+[global/wm]
+margin-bottom = 0
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 [colors]
-include-file = ~/.config/polybar/colors
+include-file = ~/.config/polybar/colors.ini
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 [bar/default]
-include-file = ~/.config/polybar/bar
+include-file = ~/.config/polybar/bar.ini
 monitor = ${env:SCREEN_NAME:HDMI-0}
 width = ${env:POLYBAR_WIDTH:100%}
 override-redirect = true
@@ -41,7 +50,7 @@ offset-y = 0
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 [module/i3]
-include-file = ~/.config/polybar/i3
+include-file = ~/.config/polybar/i3.ini
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 [module/network]
@@ -51,9 +60,13 @@ interval = 1.0
 accumulate-stats = true
 unknown-as-up = true
 
-; Left click opens nm if device is up
 format-connected = %{A1:nm-connection-editor:} <ramp-signal> <label-connected> %{A}
 label-connected = "%essid%  %local_ip%"
+
+
+format-disconnected = %{A1:nm-connection-editor:} <label-disconnected> %{A}
+label-disconnected =  "Not Connected"
+label-disconnected-foreground = ${colors.alert}
 
 ramp-signal-0 = 
 ramp-signal-1 = 
@@ -61,10 +74,6 @@ ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
 
-; Left click opens nm if device is down
-format-disconnected = %{A1:nm-connection-editor:} <label-disconnected> %{A}
-label-disconnected =  "Not Connected"
-label-disconnected-foreground = ${colors.alert}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 [module/date]
@@ -94,37 +103,27 @@ ramp-volume-4 = 
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 [module/battery]
+
 type = internal/battery
 battery = BAT0
 adapter = AC
-full-at = 99  
+full-at = 99
 
-poll-interval = 2
-time-format = %H:%M
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #ffb52a
 
-format-charging = <animation-charging>
-format-discharging = <ramp-capacity>
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
 
-label-full = ﮤ
+format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.gray}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.gray}
 animation-charging-framerate = 750
-
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-[settings]
-screenchange-reload = true
-
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-[global/wm]
-margin-bottom = 0

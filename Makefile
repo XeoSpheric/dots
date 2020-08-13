@@ -34,9 +34,6 @@ vscode-setup:
 	@cat "${HOME_SRC}/${CODE_PATH}../extensions.list" | \
 		xargs -L 1 code --force --install-extension
 
-vim-setup:
-	nvim +PlugInstall +qall
-
 install-aur-deps:
 	# The --needed flag will make pacaur skip reinstalling existing packages.
 	pacaur -S --noconfirm --needed --noedit \

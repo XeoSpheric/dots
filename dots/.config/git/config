@@ -1,16 +1,5 @@
 [user]
-	
-[alias]
-	ls = log --pretty=format:\"[%h]%d%Cblue%an%Creset:~$ %s %C(bold green)(%ar)%Creset\" --graph
-	sign-all = rebase --exec 'git commit --amend --no-edit -n -S' -i --root
+	name = Calvin Smoot
+	email = xeospheric@gmail.com
 [core]
-  editor = nvim
-  pager = diff-so-fancy | less --tabs=4 -RFX
-[commit]
-	gpgsign = true
-[push]
-  default = current
-[pull]
-  ff = only
-[includeIf "gitdir:~/projects/neo4j/"]
-  path = ~/.config/git/config-forks
+	editor = vim
