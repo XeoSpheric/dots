@@ -33,13 +33,3 @@ Here you can find most configuration files for my Arch environment.
 **Dirty**
 
 ![VS Code + Termite](https://i.imgur.com/OmDdP2X.png)
-
-## Notes
-
-- Workspaces 2 and 3 are bound to my primary screen, while 1, 5 6 are bound
-  to my secondary screen (if connected).
-
-**Workspace bindings**
-
-- **workspace 2**: VS Code
-- **workspace 3**: Termite

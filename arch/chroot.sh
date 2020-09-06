@@ -18,9 +18,7 @@ if [[ $cpu_vendor == "GenuineIntel" ]]; then
   pacman -S --noconfirm intel-ucode
 fi
 
-# Add kernel parameter for unlocking the encrypted system partition during boot.
-sed -i -r 's/^(GRUB_CMDLINE_LINUX_DEFAULT=).*$/\1"quiet cryptdevice=UUID='"$UUID"':cryptlvm root=\/dev\/SystemVolGroup\/root"/' /etc/default/grub
-sed -i -r 's/^(GRUB_CMDLINE_LINUX=).*$/\1"cryptdevice=UUID='"$UUID"':cryptlvm root=\/dev\/SystemVolGroup\/root"/' /etc/default/grub
+# Grub setup
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Generate and set system locale and keymap.
@@ -31,7 +29,7 @@ echo "KEYMAP=us" >/etc/vconsole.conf
 
 # Select timezone and set clock to UTC.
 rm -f /etc/localtime
-ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
+ln -s /usr/share/zoneinfo/America/Dener /etc/localtime
 hwclock --systohc --utc
 
 # Network configuration.
@@ -94,7 +92,9 @@ as_user EDITOR=vim pacaur -S --noconfirm --noedit $packages
 ## Enable services
 systemctl enable wicd
 systemctl enable bluetooth
+systemctl enable NetworkManager
+systemctl enable lightdm
 
 ## Link dots and project utils
-as_user git clone --recursive https://github.com/nglgzz/dots $user_home/dots
+as_user git clone --recursive https://github.com/XeoSpheric/dots $user_home/dots
 as_user make -C $user_home/dots

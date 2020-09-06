@@ -1,53 +1,36 @@
 ## Essentials
 base
 base-devel
-linux
+linux-lts
+linux-lts-headers
 linux-firmware
 lvm2
 man-db
 
-## Pacaur dependencies
-meson
-gmock
-gtest
-expac
-yajl
-git
-
-## Networking
-wget
-openssh
-
 ## Utilities
-zsh
-neovim
+acpilight
+alacritty
+arch-audit
+bzip2
+cmatrix
+dialog
+discord
+keepassxc
+neofetch
+git
 tar
-unzip
 jq
-usbutils
-
-# --------------------------
-## Xorg
-xorg-server
-xorg-xinit
-xorg-xsetroot
-
-## Keyboard
-avr-gcc
-avr-libc
-avrdude
-xorg-xev
-xcape
-
-## Dev Tools
-nodejs
-chromium
-python
-hub
+htop
+nmap
+unzip
+vim
+wavemon
+wget
+zsh
 
 ## Audio
-pavucontrol
 alsa-utils
+pavucontrol
 pulseaudio
 pulseaudio-alsa
 pulseaudio-bluetooth
@@ -56,26 +39,25 @@ pulseaudio-bluetooth
 bluez
 bluez-utils
 
-## i3
-i3-gaps
-i3lock
-picom
-xorg-xrandr
-rofi
+## LightDM
+lightdm
+lightdm-gtk-greeter
 
-## i3 bindings
-htop
-feh
-slop
-ffmpeg
-xclip
-
-## Shell
-termite
-bat
-diff-so-fancy
+## Networking
+iperf3
+iptables
+networkmanager
+nm-connection-editor
+strongswan
+networkmanager-strongswan
+wpa_supplicant
 
 
-## AUR
-pacman-contrib
-namcap
+## XFCE
+xfce4
+xfce4-goodies
+
+## Xorg
+xorg-server
+xorg-xinit
+xorg-xsetroot

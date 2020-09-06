@@ -42,7 +42,7 @@ fi
 ### PREPARE
 ## Locale
 loadkeys us
-timedatectl set-timezone Europe/Rome
+timedatectl set-timezone America/Devner
 timedatectl set-ntp true
 timedatectl status
 
@@ -53,34 +53,24 @@ source ./variables.sh
 ## Partition the disk
 parted $device -s mklabel gpt
 # Boot partition (EFI)
-parted $device -s mkpart ESP fat32 1MiB 513MiB
+parted $device -s mkpart ESP fat32 1MiB 500MiB
 parted $device set 1 boot on
-# System partition (encrypted - will contain swap + root)
-parted $device -s mkpart primary ext4 514MiB 100%
-
-# Create and open LUKS encrypted container
-cryptsetup -y -q -v luksFormat $device"p2"
-cryptsetup open $device"p2" cryptlvm
-
-## Prepare logical volumes
-# Create a physical volume on the opened LUKS container.
-pvcreate /dev/mapper/cryptlvm
-# Create a volume group adding the previously created physical volume.
-vgcreate SystemVolGroup /dev/mapper/cryptlvm
-# Create all logical volumes on the volume group.
-lvcreate -L $swap_size SystemVolGroup -n swap
-lvcreate -l 100%FREE SystemVolGroup -n root
-
-## Format and mount each logical volume
-mkfs.ext4 /dev/SystemVolGroup/root
-mkswap /dev/SystemVolGroup/swap
-
-swapon /dev/SystemVolGroup/swap
-mount /dev/SystemVolGroup/root /mnt
+# System partition
+parted $device -s mkpart primary ext4 501MiB 30000MiB
+parted $device -s mkpart primary ext4 30001MiB 100%
+# Make the swapfile
+sudo dd if=/dev/zero of=/swapfile bs=1024 count=1048576
+mkswap /swapfile
+chmod 600 /swapfile
+swapon /swapfile
+## Format and mount root (p2) and home (p3) partitions
+mkfs.ext4 /dev/$device"p2"
+mkfs.ext4 /dev/$device"p3"
+mount /dev/$device"p2" /mnt
+mount /dev/$device"p3" /mnt/home
 
 ## Format and mount boot partition
 mkfs.fat -F32 $device"p1"
-
 mkdir /mnt/boot
 mount $device"p1" /mnt/boot
 

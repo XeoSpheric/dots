@@ -8,10 +8,10 @@ set $screen_layouts ${XDG_CONFIG_HOME:-$HOME/.config}/i3/screens
 set $screenshot $HOME/tmp/screenshot.png
 
 # Executables
-set $i3_resurrect_all $HOME/.bin/i3-resurrect-all
 set $rofi_input $HOME/.bin/rofi-input
-set $screengrab $HOME/.bin/screengrab
 set $terminal termite
+set $editor code
+set $music spotify
 
 # Colors
 set_from_resource $black     background #000000
@@ -54,7 +54,7 @@ workspace $ws6 output $screen1
 bindsym $mod+Ctrl+r restart
 
 # Lock screen
-bindsym $mod+Ctrl+i exec i3lock --color '000000'
+bindsym $mod+Ctrl+l exec i3lock --color '000000'
 
 # Exit (logs out of your X session)
 bindsym $mod+Ctrl+q exec i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'
@@ -62,14 +62,9 @@ bindsym $mod+Ctrl+q exec i3-nagbar -t warning -m 'You pressed the exit shortcut.
 
 # System
 # Audio control
-bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 5%+
-bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%-
-bindsym XF86AudioMute exec amixer -D pulse set Master toggle
-
-# Mic control
-bindsym Shift+XF86AudioRaiseVolume exec amixer -D pulse set Capture 9%+
-bindsym Shift+XF86AudioLowerVolume exec amixer -D pulse set Capture 9%-
-bindsym XF86AudioMicMute exec amixer -D pulse set Capture toggle
+bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume 1
+bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -1
+bindsym XF86AudioMute exec pulsemixer --toggle-mute
 
 
 # Screen
@@ -81,24 +76,11 @@ bindsym --release $mod+s exec maim -s ~/tmp/screenshot.png &&\
 bindsym --release $mod+Shift+s exec maim ~/tmp/screenshot.png &&\
   xclip -selection clipboard -t image/png -i $screenshot
 
-bindsym --release Print exec $screengrab start && i3-msg mode "recording"
-mode "recording" {
-  bindsym --release Print exec $screengrab stop && i3-msg mode "default"
-}
-
 # Choose screen layout
 bindsym XF86Search exec ls $screen_layouts |\
   $rofi_input "screen layout" 5 |\
   xargs -I{} sh $screen_layouts/{} &&\
   i3-msg restart
-
-# Save and restore workspace layouts
-bindsym XF86Explorer exec $i3_resurrect_all save
-bindsym XF86Calculator exec $i3_resurrect_all restore
-
-# Move workspace between screens
-bindsym XF86HomePage move workspace to output left
-
 
 # Workspace
 # Go to workspace
@@ -157,10 +139,10 @@ client.urgent           $black  $black $urgent $gray $urgent
 for_window [class="^.*"] border pixel $border_width
 
 # Open terminal
-bindsym $mod+Return exec $terminal
+bindsym $mod+t exec $terminal
 
 # Rofi (_rofi)
-bindsym $mod+f exec rofi -show drun -location 2 -width 450 -lines 5
+bindsym $mod+space exec rofi -show drun -location 2 -width 450 -lines 5
 
 # Music
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -172,15 +154,12 @@ bindsym Shift+XF86AudioNext exec playerctl position +5
 bindsym Shift+XF86AudioPrev exec playerctl position -5
 
 # Screen brightness
-bindsym XF86MonBrightnessUp exec light -A 10
-bindsym XF86MonBrightnessDown exec light -U 10
-
-# Random
-bindsym $mod+a exec feh $config_dir/i3/42.png
-bindsym $mod+z exec feh $config_dir/i3/i3.png
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
 
 # Prepare background and start default programs
 exec_always feh --bg-scale $config_dir/i3/bg.jpg
 exec_always --no-startup-id $config_dir/polybar/launch.sh default
 exec_always --no-startup-id picom -bc
 exec_always --no-startup-id dunst
+exec_always udiskie

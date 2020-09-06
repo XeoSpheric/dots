@@ -1,7 +1,9 @@
-## i3
-polybar
-i3-resurrect
-maim
+## Utilities
+brave-bin
+google-chrome
+mailspring
+snapd
+yay
 
 ## Fonts
 ttf-material-icons-git
@@ -10,21 +12,12 @@ ttf-fira-sans
 ttf-ubraille
 noto-fonts-emoji
 
-## Shell
-fzf
-
-## Twitch
-obs-studio
-chatty
-
 ## Development
-nvm
-slack-desktop
 visual-studio-code-bin
-
-## Keyboard
-gcc-arm-none-eabi-bin-83
 
 ## Networking
 wicd-git
 wicd-gtk-git
+
+## Zsh
+zsh-theme-powerlevel10k-git

@@ -25,7 +25,6 @@ links-HOME links-CONFIG links-CODE: links-%:
 	)
 
 zsh-setup:
-	mkdir -p ~/projects
 	mkdir -p ~/.cache/zsh
 	rm -rf ~/.config/zsh/zsh-autosuggestions
 	git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/zsh-autosuggestions
