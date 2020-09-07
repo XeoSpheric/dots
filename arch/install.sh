@@ -42,7 +42,7 @@ fi
 ### PREPARE
 ## Locale
 loadkeys us
-timedatectl set-timezone America/Devner
+timedatectl set-timezone America/Denver
 timedatectl set-ntp true
 timedatectl status
 
