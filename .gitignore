@@ -3,4 +3,4 @@
 zsh-autosuggestions
 dots/.config/i3/workspaces
 dots/.bin/extra
-dots/.config/git/*
+dots/.config/git

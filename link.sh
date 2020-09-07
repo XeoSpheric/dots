@@ -7,7 +7,7 @@ set -eu
 
 HOME_SRC="$HOME/dots/dots"
 HOME_DST="$HOME"
-IGNORE=(.config 'Code')
+IGNORE=(.config 'Code' 'README.md')
 
 src_file="$HOME_SRC/$1"
 dst_file="$HOME_DST/$1"

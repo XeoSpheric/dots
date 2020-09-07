@@ -94,6 +94,9 @@ systemctl enable wicd
 systemctl enable bluetooth
 systemctl enable NetworkManager
 systemctl enable lightdm
+systemctl enable snapd.socket
+
+ln -s /var/lib/snapd/snap /snap
 
 ## Link dots and project utils
 as_user git clone --recursive https://github.com/XeoSpheric/dots $user_home/dots
