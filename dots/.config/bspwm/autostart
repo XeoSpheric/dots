@@ -8,6 +8,7 @@ xrdb merge .Xresources &
 ## enable local fonts in .fonts directory
 xset +fp /usr/share/fonts/local &
 xset +fp /usr/share/fonts/misc &
+xset +fp /usr/share/fonts/TFF &
 xset +fp ~/.fonts &
 xset fp rehash &
 fc-cache -fv &

@@ -1,9 +1,23 @@
 #!/bin/sh
 
-focused=$(xrdb ~/.config/X11/xresources -query all | grep foreground | cut -f2)
-normal=$(xrdb ~/.config/X11/xresources -query all | grep color8 | cut -f2)
+##Autostart
 
-bspc monitor -d term web code files media extra
+~/.config/polybar/launch.sh &
+~/.fehbg
+run_dunst &
+floating_noborder &
+picom &
+
+
+
+focused=$(xrdb ~/.config/x11/xresources -query all | grep foreground | cut -f2)
+normal=$(xrdb ~/.config/x11/xresources -query all | grep color8 | cut -f2)
+
+bspc monitor DP1 -n center
+bspc monitor eDP1 -n left
+
+bspc monitor left -d 1 2 3 4 5 6
+bspc monitor center -d 7 8 9
 
 bspc config focused_border_color	"$focused"
 bspc config normal_border_color		"$normal"
@@ -21,8 +35,3 @@ bspc rule -a Nightly desktop='^2' follow=on
 bspc rule -a mpv desktop='^5' state=fullscreen follow=on
 bspc rule -a feh state=floating follow=on
 
-$HOME/.config/polybar/launch.sh &
-~/.fehbg
-run_dunst &
-floating_noborder &
-picom &
