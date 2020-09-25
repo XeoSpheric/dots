@@ -28,8 +28,8 @@ Here you can find most configuration files for my Arch environment.
 
 **Clean**
 
-![Screenfetch](https://i.imgur.com/zSE9tTU.png)
+![st](./clean.png)
 
 **Dirty**
 
-![VS Code + Termite](https://i.imgur.com/OmDdP2X.png)
+![Bashtop + Code + st](./messy.png)
