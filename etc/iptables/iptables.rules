@@ -1,0 +1,25 @@
+# Some Basic Firewall Rulse to get started
+#  This allows anything out, but has an implicit deny comming in
+
+
+# Empty iptables rule file
+*filter
+:INPUT DROP [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+
+# ---- INPUT RULES ---- #
+# Already Connected may stay connected
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# ICMP Rules
+-A INPUT -p icmp --icmp-type destination-unreachable -j ACCEPT
+-A INPUT -p icmp --icmp-type time-exceeded -j ACCEPT
+-A INPUT -p icmp --icmp-type parameter-problem -j ACCEPT
+-A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+
+# Allow all connections to ourself from ourselve
+-A INPUT -i lo -j ACCPET
+
+
+COMMIT

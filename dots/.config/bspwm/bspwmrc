@@ -4,7 +4,6 @@
 
 ~/.config/polybar/launch.sh &
 ~/.fehbg
-~/.config/bspwm/checkMonitor.sh &
 run_dunst &
 floating_noborder &
 picom &
@@ -12,8 +11,8 @@ picom &
 devmon &
 
 
-focused=$(xrdb ~/.config/X11/xresources -query all | grep foreground | cut -f2)
-normal=$(xrdb ~/.config/X11/xresources -query all | grep color8 | cut -f2)
+focused=$(xrdb ~/.config/X11/Xresources -query all | grep foreground | cut -f2)
+normal=$(xrdb ~/.config/X11/Xresources -query all | grep color8 | cut -f2)
 
 bspc monitor DP1 -n center
 bspc monitor eDP1 -n left
