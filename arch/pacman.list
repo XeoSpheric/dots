@@ -1,0 +1,19 @@
+## Utilities
+st
+bspwm
+polybar
+zsh
+ranger
+dunst
+dmenu
+lightdm
+lightdm-slick-greeter
+remmina
+freerdp
+pv
+xfce4-settings
+lxappearance
+
+## Fonts
+ttf-font-awesome
+terminus-font

@@ -3,22 +3,13 @@ brave-bin
 google-chrome
 mailspring
 snapd
-spotify
-yay
+picon-ibhagwan
+code
+
 
 ## Fonts
-ttf-material-icons-git
-ttf-hack-powerline-git
-ttf-fira-sans
-ttf-ubraille
-noto-fonts-emoji
-
-## Development
-visual-studio-code-bin
-
-## Networking
-wicd-git
-wicd-gtk-git
+siji-git
+nerd-fonts-hack
 
 ## Zsh
 zsh-theme-powerlevel10k-git
