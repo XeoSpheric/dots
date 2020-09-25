@@ -13,6 +13,11 @@ freerdp
 pv
 xfce4-settings
 lxappearance
+arch-audit
+base-devel
+cmatrix
+feh
+
 
 ## Fonts
 ttf-font-awesome
