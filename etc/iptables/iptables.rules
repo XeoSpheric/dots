@@ -19,7 +19,7 @@
 -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
 
 # Allow all connections to ourself from ourselve
--A INPUT -i lo -j ACCPET
+-A INPUT -i lo -j ACCEPT
 
 
 COMMIT

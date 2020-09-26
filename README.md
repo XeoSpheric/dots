@@ -33,3 +33,5 @@ Here you can find most configuration files for my Arch environment.
 **Dirty**
 
 ![Bashtop + Code + st](./docs/messy.png)
+
+![pfetch + Code + cmatrix + brave](./docs/messy2.png)
