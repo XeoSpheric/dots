@@ -29,7 +29,7 @@ Here you can find most configuration files for my Arch environment.
 ![Home Screen](./docs/photos/clean.png)
 
 
-![pfetch + vim using xst](./docs/photos/sceen1.png)
+![pfetch + vim using xst](./docs/photos/screen1.png)
 
 **Dirty**
 
