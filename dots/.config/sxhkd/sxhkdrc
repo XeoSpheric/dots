@@ -6,7 +6,7 @@ super + Return
 
 # program launcher
 super + @space
-    dmenu_run
+    rofi -show run
 
 # programs
 # variables in .bash_profile
@@ -39,10 +39,9 @@ XF86AudioMute
 
 # screenshot keybindings
 Print
-    scrot "$HOME/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png" && \
-	notify-send "Screenshot captured"
+    flameshot screen
 ctrl + Print
-    scrot -C
+    flameshot gui
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -59,7 +58,7 @@ super + shift + g
     bspc config window_gap 8
 
 # quit/restart bspwm
-super + alt + {q,r}
+super + shift + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill

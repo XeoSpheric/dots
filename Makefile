@@ -11,7 +11,7 @@ HOME_FILES=$(shell find ${HOME_SRC} -mindepth 1 -maxdepth 1)
 CONFIG_FILES=$(shell find ${HOME_SRC}/${CONFIG_PATH} -mindepth 1 -maxdepth 1)
 CODE_FILES=$(shell find ${HOME_SRC}/${CODE_PATH} -mindepth 1 -maxdepth 1)
 
-all: links zsh-setup vscode-setup vim-setup
+all: links zsh-setup vscode-setup
 
 links: links-HOME links-CONFIG links-CODE
 

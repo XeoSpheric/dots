@@ -3,7 +3,6 @@ bspwm
 polybar
 zsh
 ranger 
-dmenu
 lightdm
 lightdm-slick-greeter
 remmina
@@ -15,6 +14,7 @@ arch-audit
 base-devel
 cmatrix
 feh
+rofi
 
 
 ## Fonts
