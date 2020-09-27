@@ -2,7 +2,7 @@
 
 # terminal
 super + Return
-	st
+	xst
 
 # program launcher
 super + @space
@@ -18,10 +18,6 @@ super + shift + {b,f,v,m,t}
     $TERMINAL -e ncmpcpp,\
     $TERMINAL -e rtorrent
 \}
-
-# scripts
-super + shift + r
-    redshift_toggle
 
 # brightness keybindings
 XF86MonBrightness{Up,Down}

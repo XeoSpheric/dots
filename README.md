@@ -28,10 +28,10 @@ Here you can find most configuration files for my Arch environment.
 
 **Clean**
 
-![st](./docs/clean.png)
+![st](./docs/photos/clean.png)
 
 **Dirty**
 
-![Bashtop + Code + st](./docs/messy.png)
+![Bashtop + Code + st](./docs/photos/messy.png)
 
-![pfetch + Code + cmatrix + brave](./docs/messy2.png)
+![pfetch + Code + cmatrix + brave](./docs/photos/messy2.png)

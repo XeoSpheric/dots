@@ -51,9 +51,9 @@ _comp_options+=(globdots)               # Include hidden files.
 
 # Custom ZSH Binds
 bindkey   '^ '      autosuggest-accept
-bindkey   '^[[1~'   beginning-of-line
+bindkey   '^[[H'   beginning-of-line
 bindkey   '^[[4~'   end-of-line
-bindkey   "^[[3~"   delete-char
+bindkey   "^[[P"   delete-char
 
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/zsh/aliasrc" ] && source "$HOME/.config/zsh/aliasrc"

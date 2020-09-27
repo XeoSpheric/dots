@@ -35,10 +35,10 @@ vscode-setup:
 
 install-aur-deps:
 	# The --needed flag will make pacaur skip reinstalling existing packages.
-	pacaur -S --noconfirm --needed --noedit \
-		$(shell cat "$$HOME/dots/arch/aur.list" | sed 's/#.*//')
+	yay -S --noconfirm --needed \
+		$(shell cat "$$HOME/dots/docs/aur.list" | sed 's/#.*//')
 
 install-pacman-deps:
 	# The --needed flag will make pacman skip reinstalling existing packages.
 	sudo pacman -S --noconfirm --needed \
-		$(shell cat "$$HOME/dots/arch/pacman.list" | sed 's/#.*//')
+		$(shell cat "$$HOME/dots/docs/pacman.list" | sed 's/#.*//')

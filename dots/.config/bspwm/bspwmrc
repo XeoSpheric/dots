@@ -3,12 +3,9 @@
 ##Autostart
 
 ~/.config/polybar/launch.sh &
-~/.fehbg
-run_dunst &
-floating_noborder &
+~/.config/bspwm/fehbg.sh &
 picom &
 sxhkd &
-# Automount removable media
 devmon &
 
 

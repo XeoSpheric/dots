@@ -1,10 +1,8 @@
 ## Utilities
-st
 bspwm
 polybar
 zsh
-ranger
-dunst
+ranger 
 dmenu
 lightdm
 lightdm-slick-greeter
