@@ -8,7 +8,7 @@ Here you can find most configuration files for my Arch environment.
 
 - [Dots](./dots/README.md) – Configuration, themes, and scripts that are part of my environment.
 
-- [Etc] (./etc/README.md) - This contains other files that I use as a base that are not a part of the .config section, including a base iptables config.
+- [Etc](./etc/README.md) - This contains other files that I use as a base that are not a part of the .config section, including a base iptables config.
 
 ## Commands
 
